@@ -2,6 +2,7 @@
     <title><?php echo get_bloginfo('name'); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="<?php echo plugins_url('simple-site-password-protector/dist/styles/sspp-form-frontend.css'); ?>" type="text/css" media="all" />
 </head>
 
 <?php
@@ -31,55 +32,9 @@
     $error = isset($_GET['incorrect_password']) ? 'error' : '';
 ?>
 
-<div style="background-color:<?php echo $bg_color; ?>;color:<?php echo $text_color; ?>;width:100%;height:100vh;background-image:url(<?php echo $bg_image; ?>);background-size:cover;background-position:center center;background-repeat:no-repeat;display:flex;justify-content:center;align-items:center;flex-direction:column;">
+<div style="background-color:<?php echo $bg_color; ?>;width:100%;height:100vh;background-image:url(<?php echo $bg_image; ?>);background-size:cover;background-position:center center;background-repeat:no-repeat;display:flex;justify-content:center;align-items:center;flex-direction:column;">
     <form id="sspp" method="POST">
-        <input class="<?php echo $error;?>" type="password" name="simple_site_pwd_protector_password" placeholder="<?php echo $password_placeholder; ?>" />
-        <input type="submit" value="<?php echo $submit_button_text; ?>" />
+        <input class="<?php echo $input_theme;?> <?php echo $error;?>" type="password" name="simple_site_pwd_protector_password" placeholder="<?php echo $password_placeholder; ?>" />
+        <input class="<?php echo $input_theme;?>" type="submit" value="<?php echo $submit_button_text; ?>" />
     </form>
 </div>
-
-<style>
-    body{
-        margin:0;
-        padding:0;
-    }
-    form#sspp{
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items:center;
-        max-width:300px;
-        width:92%;
-        margin:0 auto;
-    }
-    input{
-        padding:10px;
-        border-radius:5px;
-        border:1px solid transparent;
-        margin-bottom:10px;
-        font-size:18px;
-        width:100%;
-    }
-    input.error{
-        border:1px solid red;
-    }
-    input[type="submit"]{
-        background-color:#fff;
-        color:#000;
-        border:none;
-        font-weight:bold;
-    }
-    input[type="submit"]:hover{
-        cursor:pointer;
-    }
-    <?php if($input_theme === 'dark'): ?>
-    input{
-        background-color:#000;
-        color:#fff;
-    }
-    input[type="submit"]{
-        background-color:#000;
-        color:#fff;
-    }
-    <?php endif; ?>
-</style>

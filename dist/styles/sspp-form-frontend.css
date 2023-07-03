@@ -1,0 +1,41 @@
+body{
+    margin:0;
+    padding:0;
+}
+form#sspp{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    max-width:300px;
+    width:92%;
+    margin:0 auto;
+}
+input{
+    padding:10px;
+    border-radius:5px;
+    border:1px solid transparent;
+    margin-bottom:10px;
+    font-size:18px;
+    width:100%;
+}
+input.error{
+    border:1px solid red;
+}
+input[type="submit"]{
+    background-color:#fff;
+    color:#000;
+    border:none;
+    font-weight:bold;
+}
+input[type="submit"]:hover{
+    cursor:pointer;
+}
+input.dark{
+    background-color:#000;
+    color:#fff;
+}
+input.dark[type="submit"]{
+    background-color:#000;
+    color:#fff;
+}

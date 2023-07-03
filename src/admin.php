@@ -142,6 +142,6 @@ add_action('admin_enqueue_scripts', 'sspp_enqueue_scripts');
 function sspp_enqueue_scripts($hook) {
     if ($hook === 'tools_page_simple-site-password-protector') {
         wp_enqueue_media();
-        wp_enqueue_script('sspp-media-upload', plugin_dir_url(__FILE__) . '../js/sspp-media-upload.js', array('jquery'), '1.0', true);
+        wp_enqueue_script('sspp-media-upload', plugin_dir_url(__FILE__) . '../dist/js/sspp-media-upload.js', array('jquery'), '1.0', true);
     }
 }
