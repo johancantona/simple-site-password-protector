@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Simple Site Password Protector
- * Version:1.0.2
+ * Version:1.0.3
  * Author: Johan Carlsson | Balowie
  * Description: Protect your site with a password
  * URL: https://www.balowie.com

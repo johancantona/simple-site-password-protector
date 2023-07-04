@@ -1,5 +1,12 @@
 # SSP Protector Changelog
 
+## 1.0.3 minor
+
+Fixes:
+
+  - On plugin delete all settings are removed
+  - Add some visuals on admin edit
+
 ## 1.0.2 Minor
 
 Fixes:
