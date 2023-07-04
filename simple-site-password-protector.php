@@ -31,6 +31,7 @@ if($status){
     require_once plugin_dir_path(__FILE__) . 'src/init.php';
 }
 
+// Add link to plugin
 function add_plugin_link( $plugin_actions, $plugin_file ) {
     $new_actions = array();
     if ( basename( plugin_dir_path( __FILE__ ) ) . '/simple-site-password-protector.php' === $plugin_file ) {
@@ -39,3 +40,18 @@ function add_plugin_link( $plugin_actions, $plugin_file ) {
     return array_merge( $new_actions, $plugin_actions );
 }
 add_filter( 'plugin_action_links', 'add_plugin_link', 10, 2 );
+
+// On delete, clean up all options
+register_uninstall_hook(__FILE__, 'my_plugin_uninstall');
+function my_plugin_uninstall() {
+    delete_option('simple_site_password_protector_status');
+    delete_option('simple_site_password_protector_id');
+    delete_option('simple_site_password_protector_password');
+    delete_option('simple_site_password_protector_password_hint');
+    delete_option('simple_site_password_protector_background_image');
+    delete_option('simple_site_password_protector_background_color');
+    delete_option('simple_site_password_protector_input_theme');
+    delete_option('simple_site_password_protector_password_placeholder');
+    delete_option('simple_site_password_protector_submit_button_text');
+    delete_option('simple_site_password_protector_failed_password_text');
+}
