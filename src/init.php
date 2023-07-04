@@ -15,6 +15,8 @@ function sspp_redirect() {
             wp_redirect(home_url());
             exit;
         } else {
+            //set 503 header
+            status_header(503);
             sspp_show_password_form();
         }
     }
