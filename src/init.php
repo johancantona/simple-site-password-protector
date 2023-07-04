@@ -6,7 +6,7 @@ add_action('template_redirect', 'sspp_redirect');
 
 function sspp_redirect() {
     $is_logged_in = is_user_logged_in();
-    $protector_key = isset($_COOKIE['password_protector_key']) ? $_COOKIE['password_protector_key'] : false;
+    $protector_key = isset($_COOKIE[strtolower(get_bloginfo('name')) . '_sspp']) ? $_COOKIE[strtolower(get_bloginfo('name')) . '_sspp'] : false;
     $protector_id = get_option('simple_site_password_protector_id') ? get_option('simple_site_password_protector_id') : false;
     $is_not_admin = !current_user_can('administrator');
     //check that the hashed password is the same as the one in the db

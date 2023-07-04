@@ -14,7 +14,7 @@
         $protector_id = get_option('simple_site_password_protector_id') ? get_option('simple_site_password_protector_id') : false;
         $validation = password_verify($password, $correct_password);
         if ($validation && $protector_id) {
-            setcookie('password_protector_key', $protector_id, time() + (86400 * 30), "/");
+            setcookie(strtolower(get_bloginfo('name')) . '_sspp', $protector_id, time() + (86400 * 30), "/");
             wp_redirect(home_url());
             exit;
         } else {

@@ -110,7 +110,7 @@ function sspp_handle_form_submission() {
                 }else{
                     $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
                     update_option('simple_site_password_protector_password', $hashed_password);
-                    update_option('simple_site_password_protector_id', strtolower(get_bloginfo('name')) . '_' .random_int(100000, 999999));
+                    update_option('simple_site_password_protector_id', random_int(100000, 999999) . '_' . random_int(100000, 999999));
                     $message .= '<p style="color:green;">Your password has been set. <a style="color:green;" href="#" id="copy_password">Click here to copy password</a></p>';
                     $message .= '<script>document.getElementById("copy_password").addEventListener("click", function(){navigator.clipboard.writeText("' . $new_password . '");});</script>';
                 }
