@@ -1,5 +1,11 @@
 # SSP Protector Changelog
 
+## 1.0.2 Minor
+
+Fixes:
+
+  - Add settings in plugin list so its easier to locate the settings.
+
 ## 1.0 (2023-07-04)
 
 Features:
