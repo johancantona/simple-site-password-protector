@@ -12,7 +12,7 @@
 	"sections": {
 		"description": "(Required) Plugin description. Basic HTML can be used in all sections.",
 		"installation": "(Recommended) Installation instructions.",
-		"changelog": "<p>Read full changelog here</p>"
+		"changelog": "<p><a href=\"https://github.com/johancantona/simple-site-pwd-protector/blob/master/CHANGELOG.md\">Read full changelog here</a></p>"
 	},
 	
 	"icons" : {
