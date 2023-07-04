@@ -1,10 +1,11 @@
-<head>
-    <title><?php echo get_bloginfo('name'); ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <link rel="stylesheet" href="<?php echo plugins_url('simple-site-password-protector/dist/styles/sspp-form-frontend.css'); ?>" type="text/css" media="all" />
-</head>
-
+<html>
+    <head>
+        <title><?php echo get_bloginfo('name'); ?></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="noindex, nofollow">
+        <link rel="stylesheet" href="<?php echo plugins_url('simple-site-password-protector/dist/styles/sspp-form-frontend.css'); ?>" type="text/css" media="all" />
+    </head>
+<body>
 <?php
 
     if (isset($_POST['simple_site_password_protector_password'])) {
@@ -42,3 +43,6 @@
         </div>
     </form>
 </div>
+
+</body>
+</html>

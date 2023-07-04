@@ -1,14 +1,30 @@
-@media screen and (min-width: 600px){
-    #sspp_admin_form .form-wrapper{
-        display:flex;
-    }
-    #sspp_admin_form .form-wrapper p:first-of-type{
-        margin-right: 2em;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
+
+#sspp_admin_form{
+    margin:70px 10px;
+    font-family: 'Rubik', sans-serif !important;
 }
 
-#sspp_admin_form .form-wrapper, #sspp_submit, hr{
+#sspp_admin_form .form-wrapper p, #sspp_admin_form .image_uploader{
     margin-top: 2em;
+}
+
+#sspp_admin_form #sspp_submit{
+    margin-top: 2em;
+}
+
+#sspp_admin_form hr{
+    margin: 2em 0;
+}
+
+#sspp_admin_form h2{
+    margin:0;
+}
+
+#sspp_submit{
+    font-weight: bold;
+    letter-spacing: 0.02em;
+    padding:6px 24px;
 }
 
 #sspp_admin_form p{
@@ -32,6 +48,8 @@
 
 #sspp_admin_form p > label{
     font-weight: bold;
+    margin-bottom: 5px;
+    display: inline-block
 }
 
 #sspp_admin_form .image_uploader .btn-group{
@@ -41,4 +59,63 @@
 
 #sspp_admin_form .image_uploader .btn-group .button:first-of-type{
     margin-bottom: 1em;
+}
+
+@media screen and (min-width: 600px){
+    #sspp_admin_form .form-wrapper{
+        display:flex;
+    }
+    #sspp_admin_form .form-wrapper p:first-of-type{
+        margin-right: 2em;
+    }
+    #sspp_admin_form{
+        margin:80px 30px;
+    }
+    
+}
+
+#sspp_messages{
+    font-family: 'Rubik', sans-serif !important;
+    position:absolute;
+    top: 46px;
+    left: -10px;
+    right: 0;
+    padding:10px 20px;
+    background-color: white;
+    animation: slide-up 0.5s ease-in-out 10s forwards;
+}
+
+/* @keyframes slide-up{
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-100%);
+    }
+} */
+
+#sspp_messages p{
+    margin:0;
+}
+
+@media only screen and (min-width: 600px){
+    #sspp_messages{
+        left:0;
+        position:fixed;
+        padding:10px 40px;
+    }
+}
+
+@media only screen and (min-width: 783px){
+    #sspp_messages{
+        top:32px;
+        left:36px;
+        padding:10px 50px;
+    }
+}
+
+@media only screen and (min-width: 961px){
+    #sspp_messages{
+        left: 160px;
+    }
 }

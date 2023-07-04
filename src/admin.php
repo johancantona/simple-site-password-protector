@@ -19,8 +19,6 @@ function sspp_admin_menu() {
 
 function sspp_admin_page() {
 
-    echo '<h1>Simple Site Password Protector</h1>';
-
     if (isset($_POST['sspp_save_settings_nonce'])) {
         sspp_handle_form_submission();
     }
@@ -39,9 +37,12 @@ function sspp_admin_page() {
     $light = $input_theme === 'light' ? 'selected' : '';
 
     $form = '<form method="POST" id="sspp_admin_form">';
+    $form .= '<h1>SSP Protector</h1>';
     $form .= wp_nonce_field('sspp_save_settings_nonce', 'sspp_save_settings_nonce', false, false);
     $form .= '<h2>General settings</h2>';
+    $form .= '<div class="form-wrapper">';
     $form .= '<p style="display:flex; align-items:center;"><input style="margin-right:10px;" type="checkbox" ' . $status_checked . ' name="simple_site_password_protector_status" />Activate SSP Protection</p>';
+    $form .= '</div>';
     $form .= '<div class="form-wrapper">';
     $form .= '<p><label>Password</label><br><input type="password" name="simple_site_password_protector_password" placeholder="' . $has_password . '" /></p>';
     $form .= '<p><label>Password hint</label><br><input type="text" name="simple_site_password_protector_password_hint" value="' . $password_hint . '" placeholder="Set a password hint" /></p>';
@@ -62,6 +63,8 @@ function sspp_admin_page() {
     $form .= '<option ' . $dark . ' value="dark">Dark</option>';
     $form .= '</select></p>';
     $form .= '</div>';
+    $form .= '<hr>';
+    $form .= '<h2>Text settings</h2>';
     $form .= '<div class="form-wrapper">';
     $form .= '<p><label>Password placeholder text</label><br><input type="text" name="simple_site_password_protector_password_placeholder" value="' . get_option('simple_site_password_protector_password_placeholder') . '" placeholder="Type the password" /></p>';
     $form .= '<p><label>Failed password text</label><br><input type="text" name="simple_site_password_protector_failed_password_text" value="' . get_option('simple_site_password_protector_failed_password_text') . '" placeholder="Incorrect password" /></p>';
@@ -97,7 +100,7 @@ function sspp_handle_form_submission() {
                 }else{
                     $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
                     update_option('simple_site_password_protector_password', $hashed_password);
-                    update_option('simple_site_password_protector_id', random_int(100000, 999999));
+                    update_option('simple_site_password_protector_id', strtolower(get_bloginfo('name')) . '_' .random_int(100000, 999999));
                     $message .= '<p style="color:green;">Your password has been updated. <a style="color:green;" href="#" id="copy_password">Click here to copy password</a></p>';
                     $message .= '<script>document.getElementById("copy_password").addEventListener("click", function(){navigator.clipboard.writeText("' . $new_password . '");});</script>';
                 }
@@ -144,7 +147,7 @@ function sspp_handle_form_submission() {
     update_option('simple_site_password_protector_failed_password_text', $new_failed_password_text);
 
     if($message){
-        echo '<div>' . $message . '</div>';
+        echo '<div id="sspp_messages">' . $message . '</div>';
     }
 }
 
