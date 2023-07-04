@@ -16,14 +16,14 @@ require plugin_dir_path(__FILE__) . 'plugin-update-checker/plugin-update-checker
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
 $myUpdateChecker = PucFactory::buildUpdateChecker(
-	'https://balowie.se/balowie-produkter/simple-site-pwd-protector/details.json',
+	'https://balowie.se/balowie-produkter/simple-site-password-protector/details.json',
 	__FILE__, //Full path to the main plugin file or functions.php.
-	'simple-site-pwd-protector'
+	'simple-site-password-protector'
 );
 
 
 global $status;
-$status = get_option('simple_site_pwd_protector_status') ? get_option('simple_site_pwd_protector_status') : false;
+$status = get_option('simple_site_password_protector_status') ? get_option('simple_site_password_protector_status') : false;
 
 require_once plugin_dir_path(__FILE__) . 'src/admin.php';
 

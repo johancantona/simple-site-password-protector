@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
 
         mediaUploader.on('select', function() {
             var attachment = mediaUploader.state().get('selection').first().toJSON();
-            $('input[name="simple_site_pwd_protector_background_image"]').val(attachment.url);
+            $('input[name="simple_site_password_protector_background_image"]').val(attachment.url);
             $('#sspp_background_image_preview').attr('src', attachment.url);
         });
 
@@ -18,7 +18,7 @@ jQuery(document).ready(function($) {
 
     $('#sspp_remove_image_button').click(function(e) {
         e.preventDefault();
-        $('input[name="simple_site_pwd_protector_background_image"]').val('https://via.placeholder.com/100x100');
+        $('input[name="simple_site_password_protector_background_image"]').val('https://via.placeholder.com/100x100');
         $('#sspp_background_image_preview').attr('src', 'https://via.placeholder.com/100x100');
     }
     );
