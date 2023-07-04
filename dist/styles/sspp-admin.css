@@ -5,6 +5,23 @@
     font-family: 'Rubik', sans-serif !important;
 }
 
+#sspp_admin_form .sspp_title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+#sspp_admin_form .sspp_title h1{
+    margin:0;
+    line-height: 1;
+}
+
+#sspp_admin_form .sspp_title svg{
+    height: 28px;
+    margin-right: 10px;
+    margin-bottom: 4px;
+}
+
 #sspp_admin_form .form-wrapper p, #sspp_admin_form .image_uploader{
     margin-top: 2em;
 }

@@ -35,9 +35,19 @@ function sspp_admin_page() {
     $input_theme = get_option('simple_site_password_protector_input_theme') ? get_option('simple_site_password_protector_input_theme') : false;
     $dark = $input_theme === 'dark' ? 'selected' : '';
     $light = $input_theme === 'light' ? 'selected' : '';
+    $svg_locked = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd" /></svg>';
+    $svg_unlocked = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M14.5 1A4.5 4.5 0 0010 5.5V9H3a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-1.5V5.5a3 3 0 116 0v2.75a.75.75 0 001.5 0V5.5A4.5 4.5 0 0014.5 1z" clip-rule="evenodd" /></svg>';
+  
 
     $form = '<form method="POST" id="sspp_admin_form">';
-    $form .= '<h1>SSP Protector</h1>';
+    $form .= '<div class="sspp_title">';
+    if($status){
+        $form .= '<span class="sspp_icon">' . $svg_locked . '</span>';
+    }else{
+        $form .= '<span class="sspp_icon">' . $svg_unlocked . '</span>';
+    }
+    $form .= '<h1>SSP Protector</span></h1>';
+    $form .= '</div>';
     $form .= wp_nonce_field('sspp_save_settings_nonce', 'sspp_save_settings_nonce', false, false);
     $form .= '<h2>General settings</h2>';
     $form .= '<div class="form-wrapper">';
