@@ -1,0 +1,34 @@
+{
+	"name": "SSP Protector",
+	"version": "1.0",
+	"download_url": "https://balowie.se/balowie-produkter/simple-site-pwd-protector/simple-site-pwd-protector.zip",
+
+	"homepage": "https://www.balowie.se/",
+	"tested": "6.2.2",
+
+	"author": "Johan Carlsson, Balowie",
+	"author_homepage": "https://www.balowie.se/",
+
+	"sections": {
+		"description": "(Required) Plugin description. Basic HTML can be used in all sections.",
+		"installation": "(Recommended) Installation instructions.",
+		"changelog": "(Recommended) Changelog. <p>This section will be displayed by default when the user clicks 'View version x.y.z details'.</p>",
+		"custom_section": "This is a custom section labeled 'Custom Section'."
+	},
+	
+	"icons" : {
+		"1x" : "http://w-shadow.com/files/external-update-example/assets/icon-128x128.png",
+		"2x" : "http://w-shadow.com/files/external-update-example/assets/icon-256x256.png"
+    },
+
+	"banners": {
+		"low": "http://w-shadow.com/files/external-update-example/assets/banner-772x250.png",
+		"high": "http://w-shadow.com/files/external-update-example/assets/banner-1544x500.png"
+	},
+
+	"rating": 90,
+	"num_ratings": 123,
+
+	"downloaded": 1234,
+	"active_installs": 12345
+}
