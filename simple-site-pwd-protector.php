@@ -5,8 +5,6 @@
  * Author: Johan Carlsson | Balowie
  * Description: Protect your site with a password
  * URL: https://www.balowie.com
- * License: GPL v2 or later
- * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
 
 
