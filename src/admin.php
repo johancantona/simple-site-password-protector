@@ -41,7 +41,7 @@ function sspp_admin_page() {
 
     $form = '<form method="POST" id="sspp_admin_form">';
     $form .= '<div class="sspp_title">';
-    if($status){
+    if($status && get_option('simple_site_password_protector_password')){
         $form .= '<span class="sspp_icon">' . $svg_locked . '</span>';
     }else{
         $form .= '<span class="sspp_icon">' . $svg_unlocked . '</span>';
@@ -54,7 +54,7 @@ function sspp_admin_page() {
     $form .= '<p style="display:flex; align-items:center;"><input style="margin-right:10px;" type="checkbox" ' . $status_checked . ' name="simple_site_password_protector_status" />Activate SSP Protection</p>';
     $form .= '</div>';
     $form .= '<div class="form-wrapper">';
-    $form .= '<p><label>Password</label><br><input type="password" name="simple_site_password_protector_password" placeholder="' . $has_password . '" /></p>';
+    $form .= '<p><label>' . $has_password . '</label><br><input type="password" name="simple_site_password_protector_password" placeholder="' . $has_password . '" /></p>';
     $form .= '<p><label>Password hint</label><br><input type="text" name="simple_site_password_protector_password_hint" value="' . $password_hint . '" placeholder="Set a password hint" /></p>';
     $form .= '</div>';
     $form .= '<hr>';
@@ -111,7 +111,7 @@ function sspp_handle_form_submission() {
                     $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
                     update_option('simple_site_password_protector_password', $hashed_password);
                     update_option('simple_site_password_protector_id', strtolower(get_bloginfo('name')) . '_' .random_int(100000, 999999));
-                    $message .= '<p style="color:green;">Your password has been updated. <a style="color:green;" href="#" id="copy_password">Click here to copy password</a></p>';
+                    $message .= '<p style="color:green;">Your password has been set. <a style="color:green;" href="#" id="copy_password">Click here to copy password</a></p>';
                     $message .= '<script>document.getElementById("copy_password").addEventListener("click", function(){navigator.clipboard.writeText("' . $new_password . '");});</script>';
                 }
             }
