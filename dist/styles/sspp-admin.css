@@ -1,0 +1,44 @@
+@media screen and (min-width: 600px){
+    #sspp_admin_form .form-wrapper{
+        display:flex;
+    }
+    #sspp_admin_form .form-wrapper p:first-of-type{
+        margin-right: 2em;
+    }
+}
+
+#sspp_admin_form .form-wrapper, #sspp_submit, hr{
+    margin-top: 2em;
+}
+
+#sspp_admin_form p{
+    margin:0;
+}
+
+#sspp_admin_form .image_uploader{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+}
+
+#sspp_admin_form .image_uploader img{
+    border:1px solid grey;
+    width:100px;
+    height:100px;
+    object-position:center;
+    object-fit:cover;
+    margin-right:10px;
+}
+
+#sspp_admin_form p > label{
+    font-weight: bold;
+}
+
+#sspp_admin_form .image_uploader .btn-group{
+    display: flex;
+    flex-direction: column;
+}
+
+#sspp_admin_form .image_uploader .btn-group .button:first-of-type{
+    margin-bottom: 1em;
+}

@@ -2,7 +2,7 @@ body{
     margin:0;
     padding:0;
 }
-form#sspp{
+form#sspp-frontend-form{
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -10,10 +10,11 @@ form#sspp{
     max-width:300px;
     width:92%;
     margin:0 auto;
+    position: relative;
 }
 input{
     padding:10px;
-    border-radius:5px;
+    border-radius:0px;
     border:1px solid transparent;
     margin-bottom:10px;
     font-size:18px;
@@ -31,11 +32,22 @@ input[type="submit"]{
 input[type="submit"]:hover{
     cursor:pointer;
 }
-input.dark{
+#sspp-frontend-form.dark input{
     background-color:#000;
     color:#fff;
 }
-input.dark[type="submit"]{
+#sspp-frontend-form.dark input[type="submit"]{
     background-color:#000;
     color:#fff;
+}
+#error-message{
+    position: absolute;
+    bottom:-30px;
+    height: 30px;
+    line-height: 30px;
+    color:#fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#sspp-frontend-form.dark #error-message{
+    color:#000;
 }
