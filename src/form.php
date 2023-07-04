@@ -36,8 +36,10 @@
 
 <div style="background-color:<?php echo $bg_color; ?>;width:100%;height:100vh;background-image:url(<?php echo $bg_image; ?>);background-size:cover;background-position:center center;background-repeat:no-repeat;display:flex;justify-content:center;align-items:center;flex-direction:column;">
     <form id="sspp-frontend-form" class="<?php echo $input_theme;?>" method="POST">
-        <input type="password" name="simple_site_password_protector_password" placeholder="<?php echo $password_placeholder; ?>" />
-        <input type="submit" value="<?php echo $submit_button_text; ?>" />
+        <div id="fields"> 
+            <input type="password" name="simple_site_password_protector_password" placeholder="<?php echo $password_placeholder; ?>" />
+            <input type="submit" value="<?php echo $submit_button_text; ?>" />
+        </div>
         <div id="error-message">
             <?php echo $error;?>
         </div>
