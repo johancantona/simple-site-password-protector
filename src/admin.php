@@ -35,6 +35,7 @@ function sspp_admin_page() {
     $input_theme = get_option('simple_site_password_protector_input_theme') ? get_option('simple_site_password_protector_input_theme') : false;
     $dark = $input_theme === 'dark' ? 'selected' : '';
     $light = $input_theme === 'light' ? 'selected' : '';
+    $details_color = get_option('simple_site_password_protector_details_color') ? get_option('simple_site_password_protector_details_color') : false;
     $svg_locked = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd" /></svg>';
     $svg_unlocked = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M14.5 1A4.5 4.5 0 0010 5.5V9H3a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-1.5V5.5a3 3 0 116 0v2.75a.75.75 0 001.5 0V5.5A4.5 4.5 0 0014.5 1z" clip-rule="evenodd" /></svg>';
   
@@ -68,19 +69,22 @@ function sspp_admin_page() {
     $form .= '</div></div>';
     $form .= '<div class="form-wrapper">';
     $form .= '<p><label>Background color</label><br><input type="text" name="simple_site_password_protector_background_color" value="' . $background_color . '" placeholder="#000000" /></p>';
-    $form .= '<p><label>Text color</label><br><select name="simple_site_password_protector_input_theme">';
+    $form .= '<p><label>Input theme</label><br><select name="simple_site_password_protector_input_theme">';
     $form .= '<option ' . $light . ' value="light">Light</option>';
     $form .= '<option ' . $dark . ' value="dark">Dark</option>';
     $form .= '</select></p>';
+    $form .= '</div>';
+    $form .= '<div class="form-wrapper">';
+    $form .= '<p><label>Details color</label><br><input type="text" name="simple_site_password_protector_details_color" value="' . $details_color . '" placeholder="#2563eb" /></p>';
     $form .= '</div>';
     $form .= '<hr>';
     $form .= '<h2>Text settings</h2>';
     $form .= '<div class="form-wrapper">';
     $form .= '<p><label>Password placeholder text</label><br><input type="text" name="simple_site_password_protector_password_placeholder" value="' . get_option('simple_site_password_protector_password_placeholder') . '" placeholder="Type the password" /></p>';
-    $form .= '<p><label>Failed password text</label><br><input type="text" name="simple_site_password_protector_failed_password_text" value="' . get_option('simple_site_password_protector_failed_password_text') . '" placeholder="Incorrect password" /></p>';
+    $form .= '<p><label>Submit button text</label><br><input type="text" name="simple_site_password_protector_submit_button_text" value="' . get_option('simple_site_password_protector_submit_button_text') . '" placeholder="Submit" /></p>';
     $form .= '</div>';
     $form .= '<div class="form-wrapper">';
-    $form .= '<p><label>Submit button text</label><br><input type="text" name="simple_site_password_protector_submit_button_text" value="' . get_option('simple_site_password_protector_submit_button_text') . '" placeholder="Submit" /></p>';
+    $form .= '<p><label>Failed password text</label><br><input type="text" name="simple_site_password_protector_failed_password_text" value="' . get_option('simple_site_password_protector_failed_password_text') . '" placeholder="Incorrect password" /></p>';
     $form .= '</div>';
     $form .= '<p><input id="sspp_submit" class="button button-primary button-large" type="submit" value="Save settings" /></p>';
     $form .= '</form>';
@@ -156,6 +160,9 @@ function sspp_handle_form_submission() {
     $new_failed_password_text = $_POST['simple_site_password_protector_failed_password_text'] ? $_POST['simple_site_password_protector_failed_password_text'] : false;
     update_option('simple_site_password_protector_failed_password_text', $new_failed_password_text);
 
+    $new_details_color = $_POST['simple_site_password_protector_details_color'] ? $_POST['simple_site_password_protector_details_color'] : false;
+    update_option('simple_site_password_protector_details_color', $new_details_color);
+    
     if($message){
         echo '<div id="sspp_messages">' . $message . '</div>';
     }

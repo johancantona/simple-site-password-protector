@@ -1,9 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap');
 
 body{
     margin:0;
     padding:0;
     font-family: 'Rubik', sans-serif !important;
+}
+
+#sspp-frontend-wrapper{
+    background-size:cover;
+    background-position:center center;
+    background-repeat:no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    width:100%;
+    height:100vh;
+    height: 100svh;
+    min-height: 350px;
 }
 form#sspp-frontend-form{
     font-family: 'Rubik', sans-serif !important;
@@ -11,70 +25,201 @@ form#sspp-frontend-form{
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    max-width:380px;
+    max-width:280px;
     width:92%;
     margin:0 auto;
     position: relative;
 }
 form#sspp-frontend-form #fields{
     display: flex;
+    flex-direction: column;
     width: 100%;
 }
+
 input{
     font-family: 'Rubik', sans-serif !important;
-    padding:10px;
+    padding:12px;
     border-radius:0px;
-    border:1px solid transparent;
-    margin-bottom:10px;
+    border:none;
     font-size:14px;
+    height: 44px;
+}
+input::placeholder{
+    color:#000;
+    font-style: italic;
+    opacity: 0.6;
 }
 
+div#submit-button{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color:#000;
+    fill: #000;
+    background-color:#fff;
+    position: relative;
+
+}
+div#submit-button svg{
+    width: 20px;
+    position: absolute;
+    right: 10px;
+    pointer-events: none;
+    fill: inherit;
+    backface-visibility: hidden;
+}
+div#submit-button input[type="submit"]{
+    width: 100%;
+    text-align: left;
+    padding-right: 34px;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: bold;
+    color: inherit;
+}
+div#submit-button input[type="submit"]:focus{
+    outline: none;
+}
+div#submit-button:focus-within svg, div#submit-button:hover svg{
+    animation: move 1s ease-in-out infinite alternate;
+}
+div#submit-button::after{
+    content : "";
+    position: absolute;
+    width: 0px;
+    height: 100%;
+    left: 0;
+    bottom:0px;
+    transition: all 0.2s ease-in-out;
+}
+div#submit-button:focus-within::after, div#submit-button:hover::after{
+    width: 4px;
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(-6px);
+    }
+}
+
+
+#password{
+    position: relative;
+}
+
+input[type="password"]{
+    min-width: 175px;
+    width:100%;
+    margin-right: 10px;
+    background-color: #fff;
+    color:#000;
+    margin-bottom: 10px;
+}
+
+input[type="password"]:focus{
+    outline: none;
+}
+
+#password::after{
+    content : "";
+    position: absolute;
+    left: 0;
+    bottom:10px;
+    top:0;
+    width: 0px;
+    height: calc(100% - 10px);
+    transition: all 0.2s ease-in-out;
+}
+#password:focus-within::after, #password:hover::after{
+    width: 4px;
+}
+
+#error-message{
+    position: absolute;
+    bottom:-40px;
+    height: 30px;
+    line-height: 30px;
+    color:#fff;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: slide-down 1s ease-in-out forwards;
+}
+#error-message svg{
+    width: 22px;
+    margin-right: 6px;
+    fill:transparent;
+}
+
+@keyframes slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+/* DARK MODE */
+
+form#sspp-frontend-form.dark #error-message{
+    color:#000;
+}
+
+form#sspp-frontend-form.dark div#submit-button{
+    color:#fff;
+    fill:#fff;
+    background-color:#000;
+}
+form#sspp-frontend-form.dark input[type="password"]{
+    background-color: #000;
+    color:#fff;
+}
+form#sspp-frontend-form.dark input::placeholder{
+    color:#fff;
+    opacity: 0.6;
+    font-style: italic;
+}
+
+
 @media ( min-width: 500px ) {
-    input{
+    #error-message svg{
+        width: 24px;
+    }
+    input, #error-message{
         font-size: 16px;
+    }
+    div#submit-button svg{
+        width: 26px;
+    }
+    div#submit-button input[type="submit"]{
+        padding-right: 40px;
     }
 }
 
 @media ( min-width: 800px ) {
-    input{
+    #error-message svg{
+        width: 26px;
+    }
+    input, #error-message{
         font-size: 17px;
     }
-}
-
-input.error{
-    border:1px solid red;
-}
-input[type="password"]{
-   min-width: 175px;
-   width:100%;
-   margin-right: 10px;
-}
-input[type="submit"]{
-    background-color:#fff;
-    color:#000;
-    border:none;
-    font-weight:bold;
-    font-family: 'Rubik', sans-serif !important;
-}
-input[type="submit"]:hover{
-    cursor:pointer;
-}
-#sspp-frontend-form.dark input{
-    background-color:#000;
-    color:#fff;
-}
-#sspp-frontend-form.dark input[type="submit"]{
-    background-color:#000;
-    color:#fff;
-}
-#error-message{
-    position: absolute;
-    bottom:-30px;
-    height: 30px;
-    line-height: 30px;
-    color:#fff;
-    font-family: Arial, Helvetica, sans-serif;
-}
-#sspp-frontend-form.dark #error-message{
-    color:#000;
+    input, #error-message{
+        font-size: 17px;
+    }
+    div#submit-button svg{
+        width: 28px;
+    }
+    div#submit-button input[type="submit"]{
+        padding-right: 44px;
+    }
 }

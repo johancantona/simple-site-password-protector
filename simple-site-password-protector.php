@@ -54,4 +54,5 @@ function my_plugin_uninstall() {
     delete_option('simple_site_password_protector_password_placeholder');
     delete_option('simple_site_password_protector_submit_button_text');
     delete_option('simple_site_password_protector_failed_password_text');
+    delete_option('simple_site_password_protector_details_color');
 }
